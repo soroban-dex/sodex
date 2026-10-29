@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "scenarioId": "scen-10-topic-burn",
+  "description": "Test query filtering specifically for BURN events",
+  "inputEvents": [
+    { "id": "e1", "contractId": "C1", "topic": "BURN", "ledgerSequence": 100, "createdAt": "2026-10-29T00:00:00Z", "data": {} },
+    { "id": "e2", "contractId": "C1", "topic": "MINT", "ledgerSequence": 101, "createdAt": "2026-10-29T00:01:00Z", "data": {} }
+  ],
+  "queryOptions": { "topic": "BURN" },
+  "expectedRecords": [
+    { "id": "e1", "contractId": "C1", "topic": "BURN", "ledgerSequence": 100, "createdAt": "2026-10-29T00:00:00Z", "data": {} }
+  ]
+}

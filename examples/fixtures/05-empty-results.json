@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "scenarioId": "scen-05-empty-results",
+  "description": "Test query returning zero records for unmatched filter",
+  "inputEvents": [
+    { "id": "e1", "contractId": "C1", "topic": "TRANSFER", "ledgerSequence": 100, "createdAt": "2026-10-29T00:00:00Z", "data": {} }
+  ],
+  "queryOptions": { "contractId": "NON_EXISTENT" },
+  "expectedRecords": []
+}

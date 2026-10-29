@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "scenarioId": "scen-09-boundary-limit",
+  "description": "Test pagination limit of 2 records",
+  "inputEvents": [
+    { "id": "e1", "contractId": "C1", "topic": "TRANSFER", "ledgerSequence": 100, "createdAt": "2026-10-29T00:00:00Z", "data": {} },
+    { "id": "e2", "contractId": "C1", "topic": "TRANSFER", "ledgerSequence": 101, "createdAt": "2026-10-29T00:01:00Z", "data": {} },
+    { "id": "e3", "contractId": "C1", "topic": "TRANSFER", "ledgerSequence": 102, "createdAt": "2026-10-29T00:02:00Z", "data": {} }
+  ],
+  "queryOptions": { "limit": 2 },
+  "expectedRecords": [
+    { "id": "e1", "contractId": "C1", "topic": "TRANSFER", "ledgerSequence": 100, "createdAt": "2026-10-29T00:00:00Z", "data": {} },
+    { "id": "e2", "contractId": "C1", "topic": "TRANSFER", "ledgerSequence": 101, "createdAt": "2026-10-29T00:01:00Z", "data": {} }
+  ]
+}
