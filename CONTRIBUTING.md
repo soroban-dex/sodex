@@ -2,25 +2,31 @@
 
 Thank you for your interest in contributing.
 
+## Branching Strategy & Naming Conventions
+All contributions must be developed on dedicated branches branched off `main`:
+- **Features:** `feature/<short-description>` (e.g., `feature/junit-reporter`)
+- **Bug Fixes:** `bugfix/<short-description>` (e.g., `bugfix/cursor-boundary`)
+- **Tests & Fixtures:** `test/<short-description>` (e.g., `test/replay-idempotency`)
+- **Documentation:** `docs/<short-description>` (e.g., `docs/update-prd`)
+
 ## Before starting
 
-1. Read the README and product requirements document.
+1. Read the README and product requirements document (`docs/PRD.md`).
 2. Search existing issues and pull requests.
 3. For substantial changes, open an issue or discussion first.
 4. Explain the problem being solved and how success will be tested.
+5. **Assignment Required:** Comment on an issue to request assignment before starting work.
 
 ## Development
 
 Requirements:
-- A supported Node.js release
+- Node.js >= 22
 - pnpm
 
 Install dependencies:
-
     pnpm ci
 
 Run checks:
-
     pnpm run check
     pnpm run build
 
@@ -33,5 +39,4 @@ Each pull request should:
 - Explain important design decisions.
 - Avoid unrelated formatting or refactoring.
 
-Do not claim an indexer passes a scenario unless the test
-actually runs and the result is reproducible.
+**Important Rule:** Do not claim an indexer passes a scenario unless the test actually runs and the result is reproducible.
