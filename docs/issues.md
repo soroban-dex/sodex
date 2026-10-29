@@ -10,7 +10,7 @@
 Enable native CI test result visualization in GitHub Actions by adding a standard JUnit XML output format.
 
 ### 📝 Description
-While Sodex currently supports JSON reports, many CI/CD environments and GitHub Actions extensions natively parse JUnit XML reports for test failure visualization. We need a `JUnitReporter` class that converts `ScenarioExecutionResult[]` into a valid XML string conforming to the JUnit schema.
+While Sodex currently supports JSON reports, many CI/CD environments and GitHub Actions extensions natively parse JUnit XML reports for test failure visualization. We need a `JUnitReporter` class that converts `ScenarioExecutionResult[]` into a valid XML string conforming to the JUnit schema. Explain the problem being solved and how success will be tested in your PR description.
 
 ### 📋 Requirements
 - Create `JUnitReporter` implementing report generation logic.
@@ -24,16 +24,14 @@ While Sodex currently supports JSON reports, many CI/CD environments and GitHub 
 ### 🌿 Branch
 `git checkout -b feature/junit-reporter`
 
-### ✅ Acceptance Criteria
-- **Strict Modular Architecture (Non-Negotiable):** Implement using the established domain separation (`src/reporters/`).
-- **Data Source:** Must rely strictly on deterministic execution results. No inline mock objects.
-- **Production Ready:** Code must look production-ready with strong typings and robust error handling.
-- **Proof of Work:** Upload a screenshot of work done (i.e., CLI execution success, or all tests passing).
+### ✅ Acceptance Criteria & PR Requirements
+- **Strict Modular Architecture (Non-Negotiable):** Implement using established domain separation (`src/reporters/`).
+- **Primary Concern:** Address one primary concern; avoid unrelated formatting or refactoring.
+- **Tests Required:** Include tests for changed behavior. **Do not claim an indexer passes a scenario unless the test actually runs and the result is reproducible.**
+- **Documentation:** Update documentation if public behavior changes, and explain important design decisions.
+- **Proof of Work:** Upload proof of work (CLI execution success or test pass logs).
 - **PR Content:** Must include `Closes #1` with a work done summary.
-
-### 📌 PR Requirements
-- ⚠️ Assignment required before starting — comment on this issue to request assignment.
-- PR must comply fully with `CONTRIBUTING.md`.
+- ⚠️ *Assignment required before starting — comment on this issue to request assignment.*
 
 ---
 
@@ -60,16 +58,14 @@ Indexers must handle repeated ingestion ranges safely. We need to define a new d
 ### 🌿 Branch
 `git checkout -b test/replay-idempotency`
 
-### ✅ Acceptance Criteria
+### ✅ Acceptance Criteria & PR Requirements
 - **Strict Modular Architecture (Non-Negotiable):** Follow established fixture and runner schemas.
-- **Data Source:** Rely strictly on versioned fixture datasets.
-- **Production Ready:** Clean schema validation and strong typings.
+- **Primary Concern:** Address one primary concern; avoid unrelated formatting or refactoring.
+- **Tests Required:** Include tests for changed behavior. **Do not claim an indexer passes a scenario unless the test actually runs and the result is reproducible.**
+- **Documentation:** Update documentation if public behavior changes, and explain important design decisions.
 - **Proof of Work:** Terminal execution output showing successful test pass.
 - **PR Content:** Must include `Closes #2` with a work done summary.
-
-### 📌 PR Requirements
-- ⚠️ Assignment required before starting — comment on this issue to request assignment.
-- PR must comply fully with `CONTRIBUTING.md`.
+- ⚠️ *Assignment required before starting — comment on this issue to request assignment.*
 
 ---
 
@@ -83,7 +79,7 @@ Indexers must handle repeated ingestion ranges safely. We need to define a new d
 Provide production-ready live RPC integration testing for Soroban JSON-RPC nodes.
 
 ### 📝 Description
-To evaluate live or local Soroban nodes, Sodex requires a concrete adapter communicating with Soroban JSON-RPC `getEvents`. We need to flesh out `SorobanRpcAdapter` with robust error handling (`thiserror`-style or custom TypeScript error classes) and mock fetch integration tests.
+To evaluate live or local Soroban nodes, Sodex requires a concrete adapter communicating with Soroban JSON-RPC `getEvents`. We need to flesh out `SorobanRpcAdapter` with robust error handling and mock fetch integration tests.
 
 ### 📋 Requirements
 - Implement robust request formatting for `getEvents` JSON-RPC calls.
@@ -97,16 +93,14 @@ To evaluate live or local Soroban nodes, Sodex requires a concrete adapter commu
 ### 🌿 Branch
 `git checkout -b feature/soroban-rpc-adapter`
 
-### ✅ Acceptance Criteria
+### ✅ Acceptance Criteria & PR Requirements
 - **Strict Modular Architecture (Non-Negotiable):** Maintain adapter boundary contract (`src/adapters/`).
-- **Data Source:** Strict adherence to Stellar JSON-RPC specifications.
-- **Production Ready:** Comprehensive error handling for network timeouts and malformed responses.
+- **Primary Concern:** Address one primary concern; avoid unrelated formatting or refactoring.
+- **Tests Required:** Include tests for changed behavior. **Do not claim an indexer passes a scenario unless the test actually runs and the result is reproducible.**
+- **Documentation:** Update documentation if public behavior changes, and explain important design decisions.
 - **Proof of Work:** Test execution screenshot.
 - **PR Content:** Must include `Closes #3` with a work done summary.
-
-### 📌 PR Requirements
-- ⚠️ Assignment required before starting — comment on this issue to request assignment.
-- PR must comply fully with `CONTRIBUTING.md`.
+- ⚠️ *Assignment required before starting — comment on this issue to request assignment.*
 
 ---
 
@@ -120,7 +114,7 @@ To evaluate live or local Soroban nodes, Sodex requires a concrete adapter commu
 Improve developer experience by supporting configurable output formats (`--format json|pretty`) and file export (`--output <path>`).
 
 ### 📝 Description
-CI pipelines and developers inspecting logs locally require different formatting options. We need to update the CLI parser in `src/cli/index.ts` to accept `--format` (json vs human-readable pretty print) and `--output` flags to write test reports directly to disk.
+CI pipelines and developers inspecting logs locally require different formatting options. We need to update the CLI parser in `src/cli/index.ts` to accept `--format` and `--output` flags to write test reports directly to disk.
 
 ### 📋 Requirements
 - Implement flag parsing for `--format` and `--output`.
@@ -134,13 +128,11 @@ CI pipelines and developers inspecting logs locally require different formatting
 ### 🌿 Branch
 `git checkout -b feature/cli-formatting-flags`
 
-### ✅ Acceptance Criteria
+### ✅ Acceptance Criteria & PR Requirements
 - **Strict Modular Architecture (Non-Negotiable):** Keep CLI entrypoint lean by delegating to reporters.
-- **Data Source:** Valid test execution results.
-- **Production Ready:** Clear terminal logging and file write error handling.
+- **Primary Concern:** Address one primary concern; avoid unrelated formatting or refactoring.
+- **Tests Required:** Include tests for changed behavior. **Do not claim an indexer passes a scenario unless the test actually runs and the result is reproducible.**
+- **Documentation:** Update documentation if public behavior changes, and explain important design decisions.
 - **Proof of Work:** CLI execution demonstration.
 - **PR Content:** Must include `Closes #4` with a work done summary.
-
-### 📌 PR Requirements
-- ⚠️ Assignment required before starting — comment on this issue to request assignment.
-- PR must comply fully with `CONTRIBUTING.md`.
+- ⚠️ *Assignment required before starting — comment on this issue to request assignment.*
