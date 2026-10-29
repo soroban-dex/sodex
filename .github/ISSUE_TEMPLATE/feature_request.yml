@@ -1,0 +1,25 @@
+name: Feature request
+description: Propose a test capability or improvement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and existing alternatives
+      description: Link relevant code, issues, or examples
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: What observable result would complete this work?
+    validations:
+      required: true

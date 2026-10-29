@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "pnpm run typecheck && pnpm test"
+    "check": "pnpm run typecheck && pnpm test",
+    "sodex:run": "node dist/cli/index.js"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
