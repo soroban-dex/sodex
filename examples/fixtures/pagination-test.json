@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "scenarioId": "pagination-boundary-01",
+  "description": "Verify correct pagination and cursor traversal without record omission or duplication.",
+  "inputEvents": [
+    {
+      "id": "evt-001",
+      "contractId": "CC_TOKEN_CONTRACT_XYZ",
+      "topic": "TRANSFER",
+      "ledgerSequence": 105420,
+      "createdAt": "2026-10-29T10:00:00Z",
+      "data": {
+        "from": "G_ALICE...",
+        "to": "G_BOB...",
+        "amount": "500"
+      }
+    },
+    {
+      "id": "evt-002",
+      "contractId": "CC_TOKEN_CONTRACT_XYZ",
+      "topic": "TRANSFER",
+      "ledgerSequence": 105421,
+      "createdAt": "2026-10-29T10:01:00Z",
+      "data": {
+        "from": "G_BOB...",
+        "to": "G_CHARLIE...",
+        "amount": "150"
+      }
+    },
+    {
+      "id": "evt-003",
+      "contractId": "CC_TOKEN_CONTRACT_XYZ",
+      "topic": "MINT",
+      "ledgerSequence": 105425,
+      "createdAt": "2026-10-29T10:05:00Z",
+      "data": {
+        "to": "G_ALICE...",
+        "amount": "10000"
+      }
+    }
+  ],
+  "expectedRecords": [
+    {
+      "id": "evt-001",
+      "contractId": "CC_TOKEN_CONTRACT_XYZ",
+      "topic": "TRANSFER",
+      "ledgerSequence": 105420,
+      "createdAt": "2026-10-29T10:00:00Z",
+      "data": {
+        "from": "G_ALICE...",
+        "to": "G_BOB...",
+        "amount": "500"
+      }
+    }
+  ]
+}
