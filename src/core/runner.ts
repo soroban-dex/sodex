@@ -31,8 +31,9 @@ export class ConformanceRunner {
         };
       }
 
-      // Execute query against the target adapter
-      const actualRecords = await this.adapter.queryEvents({});
+      // Execute query against the target adapter using scenario query options
+      const queryOpts = scenario.queryOptions ?? {};
+      const actualRecords = await this.adapter.queryEvents(queryOpts);
       const expected = scenario.expectedRecords;
       const passed = this.compareRecords(expected, actualRecords);
 

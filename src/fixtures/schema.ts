@@ -7,11 +7,19 @@ export interface SorobanEventRecord {
   data: Record<string, unknown>;
 }
 
+export interface QueryOptions {
+  contractId?: string;
+  topic?: string;
+  limit?: number;
+  cursor?: string;
+}
+
 export interface FixtureScenario {
   version: string;
   scenarioId: string;
   description: string;
   inputEvents: SorobanEventRecord[];
+  queryOptions?: QueryOptions;
   expectedRecords: SorobanEventRecord[];
 }
 

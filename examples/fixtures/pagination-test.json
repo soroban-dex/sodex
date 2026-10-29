@@ -39,6 +39,9 @@
       }
     }
   ],
+  "queryOptions": {
+    "limit": 1
+  },
   "expectedRecords": [
     {
       "id": "evt-001",
