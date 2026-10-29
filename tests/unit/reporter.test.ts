@@ -19,7 +19,7 @@ describe('JsonReporter', () => {
     expect(report.summary.unsupported).toBe(1);
     expect(report.results).toHaveLength(3);
 
-    const jsonString = reporter.toString(executionResults);
+    const jsonString = reporter.toString(report);
     expect(typeof jsonString).toBe('string');
     expect(JSON.parse(jsonString)).toEqual(report);
   });

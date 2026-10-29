@@ -32,7 +32,8 @@ export class JsonReporter {
     };
   }
 
-  public toString(results: ScenarioExecutionResult[]): string {
-    return JSON.stringify(this.generateReport(results), null, 2);
+  public toString(input: ScenarioExecutionResult[] | TestSuiteReport): string {
+    const report = Array.isArray(input) ? this.generateReport(input) : input;
+    return JSON.stringify(report, null, 2);
   }
 }
